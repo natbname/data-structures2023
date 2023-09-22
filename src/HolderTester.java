@@ -18,29 +18,28 @@ public class HolderTester
         natArray.addInt(7);
         
         natArray.printArray();
-        //System.out.println("Is array empty? " +natArray.isEmpty()); //should be false
-        //System.out.println("The size is: "+ natArray.getSize());
+        System.out.println("Is array empty? " +natArray.isEmpty()); //should be false
+        System.out.println("The size is: "+ natArray.getSize());
         
-        //natArray.removeInt(1); //removes 2
-        //natArray.printArray();
-        //System.out.println("The size is: "+ natArray.getSize());
+        natArray.removeInt(1); //removes 2
+        natArray.printArray();
+        System.out.println("The size is: "+ natArray.getSize());
         
-        //natArray.removeLast(); //removes 7
-        //natArray.printArray();
-        
-        natArray.addIntIndex(8, 2);
+        natArray.removeLast(); //removes 7
         natArray.printArray();
         
-        //System.out.println("Does it have the value? " + natArray.contains(1)); //true
-        //System.out.println("Does it have the value? " + natArray.contains(9)); //false
+        natArray.addIntIndex(8, 2);
         
-        //natArray.removeVal(3); 
-        //natArray.printArray();
+        System.out.println("Does it have the value? " + natArray.contains(1)); //true
+        System.out.println("Does it have the value? " + natArray.contains(9)); //false
         
-        //natArray.clear(); //makes all 0
-        //natArray.printArray();
+        natArray.removeVal(3); 
+        natArray.printArray();
         
-        //System.out.println("Is array empty? " +natArray.isEmpty());//should return true after clear
+        natArray.clear(); //makes all 0
+        natArray.printArray();
+        
+        System.out.println("Is array empty? " +natArray.isEmpty());//should return true after clear
         
         
     }
