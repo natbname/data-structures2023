@@ -32,17 +32,31 @@ public class NatalieDataHolder
         }
     }
     
-    public void addIntIndex(int newVal, int valIndex)
+    public void addIntIndex(int newVal, int position) //FIXED. GRINS
     {
-        int temp = intList[valIndex]; 
-        intList[valIndex] = newVal;
+        int[] temp = new int[intList.length];
         
-        for (int i = valIndex+1; i < size; i++) //doesnt shift ints correctly 
+        for(int i = 0; i < position; i++) //first half of array
         {
-            intList[i] = intList[i+1];    
+            temp[i] = intList[i];
         }
-        size++;
+        
+        temp[position] = newVal; //adds the number
+        
+        for(int i = position+1; i < intList.length-1; i++) //second half of array
+        {
+            temp[i] = intList[i-1];
+        }
+        
+        System.out.print("{"); 
+        for(int i = 0; i < temp.length; i++)
+        {
+            System.out.print(temp[i]+", ");
+        }
+        System.out.print("}\n");
     }
+    
+    
     public void removeInt(int index) //remove a value at given index
     {
         for (int i = index+1; i < intList.length; i++)
@@ -127,7 +141,7 @@ public class NatalieDataHolder
     }
     
     
-    public void printArray() //prints out each array value+formatting
+    public void printArray() //prints out each array value+formatting. want to apply to arrays other than intlist at some point
     {
         System.out.print("{");
         for(int i = 0; i < intList.length; i++)
