@@ -6,32 +6,34 @@ public class NatalieDataHolder implements DataTraverser
 {
     final int LENGTH = 10;
     private int[] intList = new int[LENGTH];
-    private int size;
+
+    private int dataSize;
     private int nextIndex = 0; //for interface next method
-    
+
     public NatalieDataHolder(int s) 
     {
-        size = s;
+        dataSize = s;
     }
     
+
     public NatalieDataHolder(){}
     
-    public void addInt(int newI) //adds value. if full, uses bigger array.
+    public void addInt(int toAdd) //adds value. if full, uses bigger array.
     {
-        if(size < LENGTH)
+        if(dataSize < LENGTH)
         {    
-            intList[size] = newI;
-            size++;
+            intList[dataSize] = toAdd;
+            dataSize++;
         }
         else 
         {
-            int[] intList2 = new int[size*2];
+            int[] intList2 = new int[dataSize*2];
             for (int i = 0; i<intList.length; i++)
             {
                 intList2[i] = intList[i];
             }
-            intList2[size] = newI;
-            size++;
+            intList2[dataSize] = toAdd;
+            dataSize++;
         }
     }
     
@@ -66,16 +68,16 @@ public class NatalieDataHolder implements DataTraverser
         {
             intList[i-1] = intList[i];
         }
-        size--;
+        dataSize--;
     }
     
     public void removeLast()
     {
-        for (int i = size; i < intList.length; i++)
+        for (int i = dataSize; i < intList.length; i++)
         {
             intList[i-1] = intList[i];
         }
-        size--;
+        dataSize--;
     }
     
     public void removeVal(int val)
@@ -91,7 +93,7 @@ public class NatalieDataHolder implements DataTraverser
     
     public int getSize() //getter 4 size
     {
-        return size;
+        return dataSize;
     }
     
     public int getIndex(int getIn)
@@ -105,10 +107,11 @@ public class NatalieDataHolder implements DataTraverser
         {
             intList[i] = 0;
         }
-        size = 0;
+        dataSize = 0;
     }
     
    
+    // ToFix: deepClone creates new object, not changing the old object, that would be clear
     public void deepClone()
     {
         int[] intList2 = new int[LENGTH];
@@ -140,7 +143,7 @@ public class NatalieDataHolder implements DataTraverser
     
     public boolean isEmpty()
     {
-        return(size == 0);
+        return(dataSize == 0);
     }
     
     
