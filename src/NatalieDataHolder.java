@@ -2,16 +2,19 @@
  * creates an array default size 10 that adds int from user, removes objects, and prints the array.
  * @author natalie
  */
-public class NatalieDataHolder 
+public class NatalieDataHolder implements DataTraverser
 {
     final int LENGTH = 10;
     private int[] intList = new int[LENGTH];
     private int size;
+    private int nextIndex = 0; //for interface next method
     
     public NatalieDataHolder(int s) 
     {
         size = s;
     }
+    
+    public NatalieDataHolder(){}
     
     public void addInt(int newI) //adds value. if full, uses bigger array.
     {
@@ -150,4 +153,37 @@ public class NatalieDataHolder
         }
         System.out.print("}\n");
     }
+    
+    //implements datatraverser interface. 
+    @Override
+    public int next()
+    {
+        int val = getIndex(nextIndex);
+        nextIndex++; 
+        return val;
+    }
+    
+    @Override
+    public boolean hasNext() //as far as i know this works
+    {
+        if(next() != 0) 
+        {
+            return true; 
+        }
+        else
+        {
+            return false; 
+        }
+    }
+    
+    public void printIncrements() 
+    {
+        
+        while(hasNext())
+        {
+            int temp = next();//NEXT IS RUNNING TWICE. HELP
+            System.out.println(temp);
+        }
+    }   
 }
+  
